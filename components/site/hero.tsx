@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import dynamic from "next/dynamic";
+import { useRef, useState } from "react";
 import {
   motion,
   useReducedMotion,
@@ -9,9 +10,16 @@ import {
   useTransform,
 } from "motion/react";
 
+// 3D logo loaded client-side only, after first paint (keeps LCP fast).
+const Logo3D = dynamic(
+  () => import("./logo-3d").then((m) => m.Logo3D),
+  { ssr: false }
+);
+
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
+  const [logo3dReady, setLogo3dReady] = useState(false);
 
   // Scroll progress through the hero section (0 = top, 1 = scrolled one viewport).
   const { scrollYProgress } = useScroll({
@@ -52,26 +60,39 @@ export function Hero() {
         }}
       />
 
-      {/* Logo ghost — placeholder for the 3D wireframe (step 2). Sits behind and
-          off-axis from the headline, monochrome and faint (NOT lime — lime stays a
-          point accent, never a large surface). Recedes on scroll. */}
+      {/* Logo: 3D wireframe (lazy) layered over a 2D fallback that stays until the
+          3D's first frame is drawn — and forever if WebGL/3D fails or reduced-motion.
+          Monochrome + faint, off-axis behind the headline. Recedes on scroll. */}
       <motion.div
         aria-hidden
         style={
           reduce
-            ? { opacity: 0.05 }
+            ? { opacity: 0.5 }
             : { opacity: logoOpacity, scale: logoScale, y: logoY }
         }
-        className="pointer-events-none absolute right-[6vw] top-[10vh] flex items-start justify-end"
+        className="pointer-events-none absolute right-[4vw] top-[6vh] h-[56vmin] w-[56vmin]"
       >
+        {/* 2D fallback (under) */}
         <Image
           src="/logo/nexus-white.svg"
           alt=""
           width={520}
           height={553}
           priority
-          className="h-[42vmin] w-auto opacity-[0.06]"
+          className={`absolute inset-0 m-auto h-[75%] w-auto opacity-[0.06] transition-opacity duration-700 ${
+            logo3dReady ? "opacity-0" : "opacity-[0.06]"
+          }`}
         />
+        {/* 3D wireframe (over) */}
+        {!reduce && (
+          <div
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              logo3dReady ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Logo3D onReady={() => setLogo3dReady(true)} />
+          </div>
+        )}
       </motion.div>
 
       {/* Foreground copy */}
