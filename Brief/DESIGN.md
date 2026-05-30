@@ -69,16 +69,14 @@
 
 ## Vincolo palette (asset brand pre-esistente)
 
-⚠️ **Nexus ha già una palette brand ufficiale e un logo.** Questi NON sono scelte di design da fare ex-novo: sono **asset di brand da rispettare**. Claude Code in `/nexus-design` NON deve proporre una palette nuova da zero — deve **finalizzare quella esistente** applicando i fix tecnici già identificati.
+⚠️ **Nexus ha un logo definitivo e una palette brand di partenza.** Il logo è fissato e non si tocca. La **palette è in fase di revisione/finalizzazione su Claude Code via `/nexus-design`** — è lì che vivono i valori hex concreti, i fix tecnici (contrasto, hover/pressed states, body-on-light), e gli eventuali colori semantici.
 
-Palette + regole d'uso complete + fix obbligatori + estensioni semantiche da decidere: vedi **`briefing.md` → sezione "Note palette — input per Intermezzo Design"**.
+In questo file resta solo la **direzione cromatica astratta** (vedi "Atmosfera cromatica" sopra): mood tech-editorial, prevalenza scura come base, cream come pausa umana, accent fluo con disciplina chirurgica.
 
-Sintesi dei fix da finalizzare in `/nexus-design`:
-1. Lime `#B8FF3D` mai su cream `#F5F3EE` (FAIL contrasto) → solo su sfondi scuri
-2. Aggiungere `#5C5B57` come body-on-light (palette estesa a 6 colori)
-3. Definire hover/pressed del lime (`#A8E835` / `#95CC2A`)
-4. Definire colori semantici error/success/warning (success NON usa il lime)
-5. Regola "una parola lime per pagina" come accent editoriale
+Vincoli di principio che valgono qualunque sia l'esito della revisione palette:
+- L'accent fluo è **firma puntuale, non superficie** (mai grandi aree, mai come testo, mai su sfondi chiari)
+- Rischio "Linear/Vercel copy" da sterilizzare attivamente (cream + serif touch + ariosità)
+- Ogni valore di testo deve rispettare il contrasto WCAG — Claude Code lo verifica in `/nexus-design`
 
 ## Direzione per Claude Code
 
@@ -91,7 +89,7 @@ Sintesi dei fix da finalizzare in `/nexus-design`:
   - No font monospace, no font di banlist globale
   - Rischio Linear/Vercel-copy da sterilizzare attivamente
 - **Cosa Claude Code DEVE proporre nell'Intermezzo `/nexus-design`**:
-  - **Palette**: NON una nuova → finalizzazione di quella esistente (i 5 fix sopra)
+  - **Palette**: revisione/finalizzazione della palette brand (valori hex, fix di contrasto, hover/pressed states, body-on-light, eventuali colori semantici error/success/warning). Punto fermo: l'accent fluo non si usa come testo né come grande superficie, e il success non coincide con l'accent
   - **3 direzioni tipografia** compatibili con "sans grottesco geometrico + serif touch", NO monospace
   - **3 direzioni energia CTA** compatibili con "equilibrata-crescente"
   - **3 direzioni macro-layout** per le 3 sezioni-firma: (a) sistema visualizzato/workflow, (b) diagramma split anti-AI-slop, (c) lavori asimmetrici editoriali
