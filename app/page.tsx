@@ -3,6 +3,7 @@ import { Hero } from "@/components/site/hero";
 import { Hook } from "@/components/site/hook";
 import { Manifesto } from "@/components/site/manifesto";
 import { System } from "@/components/site/system";
+import { Split } from "@/components/site/split";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
         <Hook />
         <Manifesto />
         <System />
-        {/* Sezioni successive: Split → Lavori → Recensioni → Tier → FAQ → Footer */}
+        <Split />
+        {/* Sezioni successive: Lavori → Recensioni → Tier → FAQ → Footer */}
       </main>
     </>
   );
