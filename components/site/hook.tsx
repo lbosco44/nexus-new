@@ -8,7 +8,10 @@ export function Hook() {
   const inView = useInView(ref, { once: true, margin: "-20% 0px -20% 0px" });
 
   return (
-    <section className="flex min-h-[80vh] items-center justify-center bg-cream px-6 py-32">
+    <section
+      data-theme="light"
+      className="flex min-h-[80vh] items-center justify-center bg-cream px-6 py-32"
+    >
       <div ref={ref} className="mx-auto max-w-3xl text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
