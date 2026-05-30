@@ -73,17 +73,24 @@ Item (titolo + 1 riga contesto + etichetta):
 
 1. **Sicily Driver** — Noleggio con conducente, Sicilia. — `Progetto in corso`
 2. **Iacono Clima** — Climatizzazione e assistenza, Siracusa. — `Progetto in corso`
-3. **Export auto Dubai** `[placeholder nome reale]` — Compravendita auto verso l'estero. — `Progetto in corso`
-4. **Impianti solari** `[placeholder nome cliente fotovoltaico]` — Fotovoltaico per casa e impresa. — `Progetto in corso`
+3. **I2Motors** — Compravendita ed export auto verso l'estero. — `Progetto in corso`
+4. **Fotovolts** — Fotovoltaico per casa e impresa. — `Progetto in corso`
 5. **Enoteca di quartiere** — Studio interno: come immaginiamo un sito per una piccola enoteca. — `Studio interno`
 
 - CTA testuale a fine sezione: **Tutti i lavori →**
 
-### Sez. 8 — Recensioni / Proof `[vuoto]`
+### Sez. 8 — Recensioni / Proof `[vuoto al lancio]`
 - Overline: **Cosa dicono**
-- `[SEZIONE VUOTA — nessuna recensione reale al lancio. Da popolare post-lancio. Non inventare.]`
-- Empty-state onesto suggerito (coerente con la trasparenza del brand, taglialo se preferisci niente):
+
+- **Opzione consigliata per il LIVE** — empty-state onesto (coerente con la trasparenza del brand):
   > Le prime recensioni stanno arrivando. Quando ci saranno, le trovi qui — vere, raccontate per esteso.
+
+- **Solo per costruire il layout** — segnaposto DUMMY, dichiaratamente finto `[NON PUBBLICARE — sostituire con recensioni reali prima del go-live]`:
+  > «Recensione segnaposto uno: testo finto per riempire il blocco e vedere come respira la sezione su una citazione lunga. Da sostituire.»
+  > — Nome Cognome (segnaposto) · Ruolo (segnaposto)
+  >
+  > «Recensione segnaposto due, più corta, per testare il layout su lunghezze diverse.»
+  > — Nome Cognome (segnaposto) · Ruolo (segnaposto)
 
 ### Sez. 9 — CTA tier-based
 - Titolo: **Quale Nexus fa per te?**
@@ -204,7 +211,7 @@ Puoi gestirlo tu o lasciarlo a noi con la manutenzione mensile. Nessun vincolo: 
 8. **Citazione cliente**: `[da raccogliere — non inventare]`
 9. **CTA**: **Iniziamo →**
 
-> Stesso schema per Iacono Clima (HVAC, Siracusa), Export auto Dubai, Impianti solari, ed Enoteca di quartiere (concept — sezioni 7 e 8 omesse, etichetta "Studio interno" ben visibile).
+> Stesso schema per Iacono Clima (HVAC, Siracusa), I2Motors (export auto), Fotovolts (fotovoltaico), ed Enoteca di quartiere (concept — sezioni 7 e 8 omesse, etichetta "Studio interno" ben visibile).
 
 ---
 
