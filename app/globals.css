@@ -64,10 +64,26 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  background: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   font-optical-sizing: auto;
+}
+
+::selection {
+  background: var(--color-lime);
+  color: var(--color-on-lime);
 }
