@@ -2,45 +2,72 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* =========================================================================
+   NEXUS — Design tokens (fonte di verità: Brief/DESIGN.md → "Scelte concrete approvate")
+   Palette "Mono-accent Editorial" + tipografia Clash Display / Satoshi / Fraunces.
+   NON modificare a mano in build: passare da /nexus-design.
+   ========================================================================= */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  /* --- Palette brand (bloccata) --- */
+  --color-ink: #0a0a0a; /* bg primario, testo primario su cream */
+  --color-ink-warm: #2a2926; /* superfici stratificate, body su cream, bordi caldi */
+  --color-cream: #f5f3ee; /* bg sezioni narrative — "pausa umana" */
+  --color-muted: #8b8a85; /* testo secondario su scuro, caption (solo large su cream) */
+  --color-muted-body: #5c5b57; /* body lungo su cream (fix WCAG AA ~6:1) */
+
+  /* --- Accent firma puntuale (solo su scuro, mai su cream, mai come testo) --- */
+  --color-lime: #b8ff3d;
+  --color-lime-hover: #a8e835;
+  --color-lime-pressed: #95cc2a;
+  --color-on-lime: #0a0a0a;
+
+  /* --- Hairline --- */
+  --color-border-dark: #38362f;
+  --color-border-light: #e0dcd2;
+
+  /* --- Semantici (desaturati caldi — success ≠ lime) --- */
+  --color-error: #cc5b4e;
+  --color-success: #6e8b5a;
+  --color-warning: #c99a4e;
+
+  /* --- Mapping semantico base --- */
+  --color-background: var(--color-ink);
+  --color-foreground: var(--color-cream);
+
+  /* --- Tipografia ---
+     display = Clash Display (Fontshare) · sans = Satoshi (Fontshare) · serif = Fraunces (next/font)
+     NESSUN monospace (regola permanente Nexus). */
+  --font-display: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  /* --- Animazioni (marquee component) --- */
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
 }
